@@ -1,0 +1,129 @@
+{% include "header.html" %}
+
+<style type="text/css">
+  body{background-color: #DADADA;
+    text-align: center;
+  margin-top: 200px;}
+  button {
+    background-color: #1C77AC;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+  }
+</style>
+
+{% block body %} 
+
+<article>
+    <div class="container">
+        <fieldset>
+             <form method="POST" action="insert_school?sid={{sid}}&item={{item}}" role="form" data-toggle="validator">
+                {%if (item =='sat') %}
+                <legend>Update SAT</legend>
+                <br><label class="control-label">Year</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="year" style="height: 30px;" required="1">
+                </div>
+                <label class="control-label">Reading</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="reading" style="height: 30px;" required="1">
+                </div>
+                <label class="control-label">Mathematics</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="mathematics" style="height: 30px;" required="1">
+                </div>
+                <label class="control-label">Writing</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="writing"  style="height: 30px;" required="1">
+                </div>
+               <br><br>
+              <button class="large ui olive submit button">
+                    Update!
+                </button>
+    
+                {%endif %}
+
+                {%if (item =='student') %}
+                <legend>Update Student</legend>
+                <br><label class="control-label">Student Id</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="stuid" style="height: 30px;" required>
+                </div>
+                <label class="control-label">Student Name</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="name" style="height: 30px;" required>
+                </div>
+               <br><br>
+              <button class="large ui olive submit button">
+                    Update!
+                </button>
+                {%endif %}
+
+
+            {%if (item =='teacher') %}
+                <legend>Update Teacher</legend>
+                <br><label class="control-label">Teacher Id</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="tid" style="height: 30px;" required>
+                </div>
+                <label class="control-label">Teacher Name</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="tname" style="height: 30px;" required>
+                </div>
+                <label class="control-label">Education</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="edu" style="height: 30px;" required>
+                </div>
+                <label class="control-label">Gender</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="gender" style="height: 30px;" required>
+                </div>
+               <br><br>
+              <button class="large ui olive submit button">
+                    Update!
+                </button>
+                {%endif %}   
+
+            {%if (item =='course') %}
+                <legend>Update Teacher</legend>
+                <br><label class="control-label">Course Id</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="cid" style="height: 30px;" required>
+                </div>
+                <label class="control-label">Course Name</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="cname" style="height: 30px;" required>
+                </div>
+                <label class="control-label">Instructor Id</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="tid" style="height: 30px;" required>
+                </div>
+                <label class="control-label">Student Id</label>
+                <div class="controls input-append" style="height: 30px;">
+                    <input size="16" type="text" maxlength="20" name="stuid" style="height: 30px;" required>
+                </div>
+               <br><br>
+              <button class="large ui olive submit button">
+                    Update!
+                </button>
+                {%endif %}       
+
+         </form>
+        </fieldset>
+        {%if (message is defined)%}
+                <br><h4>{{message}}</h4>
+                <!-- <button onclick="window.location.href='/check'">Continue</button> -->
+                <br><button onclick="window.location.href='/manage?userid={{sid}}&password={{pwd}}'">Continue</button>
+                {%endif%}
+         {%if (message is  not defined)%}
+         <br><br>
+         <button onclick="window.location.href='/manage?userid={{sid}}&password={{pwd}}'">Back</button>
+        {%endif%}
+        
+    </div>
+
+</article>
+
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,74 @@
+{% include "header.html" %}
+
+<style type="text/css">
+  text-align: left;
+  body{background-color: #DADADA;}
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;}
+  td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;}
+  tr:nth-child(even) {
+  background-color: #dddddd;}
+  h3{font-size: 18px; font-family: arial;}
+
+
+
+</style>
+{%block body %}
+<div class="container container-body">
+<form method="GET" action="/search">
+    <h2>Search your ideal school</h2>
+    <hr>
+    <div>
+    <h3>1. Select a borough:</h3>
+    <select name = bid> 
+      <option value="" disabled selected>-  Select your option -</option>
+      {% for n in names %}
+        <option value="{{n[1]}}">{{n[0]}}</option>
+      {% endfor %}     
+    </select>
+
+
+    <br><h3>2. Select a fund level:</h3>
+    <p><i>Low</i>: fund amount < $75,000 
+    <br><i>Median</i>: fund amount in ($75,000 , $82,000)
+    <br><i>High</i>: fund amount > $82,000 </p>
+    <select name = fund> 
+      <option value="" disabled selected>-  Select your option -</option>
+      {% for f in fund %}
+        <option value="{{f}}">{{f}}</option>
+      {% endfor %} 
+    </select>
+
+
+    <br><h3>3. Select a score level:</h3>
+    <p><i>Low</i>: SAT score < 1125
+    <br><i>Median</i>: SAT score in (1125 , 1200)
+    <br><i>High</i>: SAT score > 1200 </p>
+    <select name = score> 
+      <option value="" disabled selected>-  Select your option -</option>
+      {% for s in score %}
+        <option value="{{s}}">{{s}}</option>
+      {% endfor %} 
+    </select>
+  </div>
+    <br><input type="submit" value="Search">
+  </form>
+
+  {% if (result is defined) %}
+  <hr> 
+  <h3> Searching Results </h3>
+  <i>For more detail information, click the name of the school</i>
+  <br>
+  {% for r in result%}
+  <br><a href="/school_info?sid={{r[1]}}">{{r[0]}}</a>
+  {%endfor%}
+
+
+  {%endif%}
+</div>
+{% include "footer.html" %}
+{%end block%}

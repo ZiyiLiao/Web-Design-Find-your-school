@@ -1,0 +1,83 @@
+{% include "header.html" %}
+
+<style type="text/css">
+  body{background-color: #DADADA;}
+  h2{text-align: center;
+    color: rgba(255,255,255,.95;}
+</style>
+
+
+
+<div class = "container container-body">
+
+{% block body %} 
+<div>
+    {% if (school_id is defined) %}
+      {% for s in school_id %}
+        <h2> {{s.sname}}</h2>
+        <hr>
+        <h3> Introduction </h3>
+        <p><br>Name: {{ s.sname }}
+          <br>School_Id: {{ s.sid }}
+          <br>Enrollment: {{ s.enrollment}}
+          <br> Principal: {{s.principal}}
+          <br>Location: {{s.bname}} <a href="/borough"> (for more information)</a>
+          </p> 
+        {% endfor %}
+    {% endif %}
+    {% if (school_id is defined) and (school_id| length == 0)%}
+      <h2>PLEASE CHECK YOUR SELECTION</h2>
+    {% endif %}
+</div>
+
+<hr>
+<div>
+<h3> Survey Score </h3>
+    {% if (survey is defined) %}
+      {% for s in survey %}
+      <br><p>{{s.standard}} : {{s.score}} points
+        {% endfor %}</p>
+    {% endif %}
+    {% if (survey is defined) and (survey | length == 0)%}
+      <p style="font-family:courier">No results yet</p>
+    {% endif %}
+</div>
+
+
+<hr>
+<div>
+<h3> SAT Score </h3>
+    {% if (sat is defined) %}
+      {% for score in sat %}
+      <br><p>{{score.year}} : Reading: {{score.reading}};     Mathmatics: {{score.mathematics}};     Writing: {{score.writing}}
+        {% endfor %}</p>
+    {% endif %}
+    {% if (sat is defined) and (sat | length == 0)%}
+      <p style="font-family:courier">No results yet</p>
+    {% endif %}
+</div>
+
+<hr>
+<div>
+<h3> Fund </h3>
+    {% if (fund is defined) %}
+      {% for f in fund %}
+      <br><p>{{f.year}} : {{f.amount}}
+        {% endfor %}</p>
+
+    {% endif %}
+    {% if (fund is defined) and (fund | length == 0)%}
+      <p style="font-family:courier">No results yet</p>
+    {% endif %}
+</div>
+
+
+
+<hr>
+<div>
+  <h6>school manager log in --> <a href="/login">here</a></h6>
+</div>
+
+</div>
+{% endblock %}
+{% include "footer.html" %}

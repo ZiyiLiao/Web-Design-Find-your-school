@@ -1,0 +1,60 @@
+{% include "header.html" %}
+
+<style type="text/css">
+  body{background-color: #DADADA;
+    text-align: center;
+  margin-top: 200px;}
+  button{
+    background-color: #1C77AC;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+</style>
+
+{% block body %} 
+
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    Only Administrator could log in for more information
+    <h2 class="ui teal image header">
+      <div>
+        Log-in to your account
+      </div>
+    </h2>
+
+      <div class="ui stacked segment">
+        <form method = 'GET' action = "/manage">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="userid" placeholder="User Id" required>
+          </div>
+        </div>
+
+        <form class="ui large form" method="POST" action="login">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="password" placeholder="Password" required>
+          </div>
+          <div class="ui error message">
+              {% if (err is defined) %}
+                <p style="color:red;">* Wrong userid or password, please check again</p>
+              {%endif%}
+      </div>
+        </div>
+
+        <button type="submit" style="width:auto;">Login</button>
+          </form>
+          
+        </form>
+      </div>
+  </div>
+  
+</div>
+
+{% endblock %}
+{% include "footer.html" %}

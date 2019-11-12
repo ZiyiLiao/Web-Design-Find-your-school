@@ -1,0 +1,32 @@
+{% include "header.html" %}
+<style type="text/css">
+  body{background-color: #DADADA;}
+  h2{text-align: center;
+    color: rgba(255,255,255,.95;}
+</style>
+
+
+<div class = "container container-body">
+
+<div>
+  <h2> Borough Profile </h2>
+  {% if (data is defined) %}
+    {% for b,c in data.items() %}
+    <hr>
+
+    <h3> {{b[0]}}</h3>
+    <p><br>Area: {{b[1]}}
+      <br>Population: {{b[2]}}</p>
+
+      {% for detail in c %}
+      <br>{{detail[0]}}: &nbsp {{detail[1]}} 
+
+    {%endfor%}
+
+    {%endfor%}
+
+
+    {%endif%}
+
+
+{% include "footer.html" %}

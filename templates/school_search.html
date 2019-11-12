@@ -1,0 +1,18 @@
+{% include "header.html" %}
+<style type="text/css">
+  body{background-color: #DADADA;}
+</style>
+
+<div class="container container-body">
+<form method="GET" action="/school_info">
+    <h2>Search School's Information</h2>
+    <select name = sid> 
+    <option value="" disabled selected>-  Select your option -</option>
+      {% for n in names %}
+        <option value="{{n[1]}}">{{n[0]}}</option>
+      {% endfor %}     
+    </select>
+    <input type="submit" value="Search">
+  </form>
+</div>
+{% include "footer.html" %}

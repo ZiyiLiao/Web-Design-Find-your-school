@@ -1,0 +1,210 @@
+{% include "header.html" %}
+
+<style type="text/css">
+  body{background-color: #DADADA;}
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;}
+  td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;}
+  tr:nth-child(even) {
+  background-color: #dddddd;}
+  h3{font-style: italic; color: rgba(255,255,255,.95;}
+</style>
+
+<div class = "container container-body">
+<body>
+  {% if (sid is defined) %}
+  <h3>Welcome back!  
+    <br>{{data[0].sname.upper()}} Administrator</h3>
+    <hr>
+    <p><br>school id: {{data[0].sid}}
+      <br>Enrollment: {{data[0].enrollment}}
+      <br>Borough: {{data[0].bid}}
+      <br>Principal: {{data[0].principal}}
+    </p>
+    <hr>
+    <h4>Students Information</h4>
+    <button id="student" onclick="hide('student_info')">Hide</button> <a href= "/insert_school?sid={{sid}}&item=student"> Update </a>
+    <div id = "student_info">
+      <table>
+        <tr>
+          <th>Student Id</th>
+          <th>Student Name</th>
+        </tr>
+        {% for s in student%}
+        <tr>
+          <td>{{s.stuid}}</td>
+          <td>{{s.name}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+    <hr>
+    <h4>Teachers Information</h4>
+    <button id="teacher" onclick="hide('teacher_info')">Hide</button> <a href= "/insert_school?sid={{sid}}&item=teacher"> Update </a>
+    <div id = "teacher_info">
+      <table>
+        <tr>
+          <th>Teacher Id</th>
+          <th>Teacher Name</th>
+          <th>Education</th>
+          <th>Gender</th>
+        </tr>
+        {% for t in teacher%}
+        <tr>
+          <td>{{t.tid}}</td>
+          <td>{{t.tname}}</td>
+          <td>{{t.education}}</td>
+          <td>{{t.gender}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+
+
+    <hr>
+    <h4>Course Information</h4>
+    <button id="course" onclick="hide('course_info')">Hide</button> <a href= "/insert_school?sid={{sid}}&item=course"> Update </a>
+    <div id = "course_info">
+      <table>
+        <tr>
+          <th>Course Id</th>
+          <th>Course Name</th>
+          <th>Instructor's Name</th>
+        </tr>
+        {% for t in teach%}
+        <tr>
+          <td>{{t.course_id}}</td>
+          <td>{{t.course_name}}</td>
+          <td>{{t.tname}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+
+      <hr>
+    <h4>SAT Information</h4>
+    <button id="sat" onclick="hide('sat_info')">Hide</button> <a href= "/insert_school?sid={{sid}}&item=sat"> Update </a>
+    <div id = "sat_info">
+      <table>
+        <tr>
+          <th>Year</th>
+          <th>Reading Score</th>
+          <th>Mathematics Score</th>
+          <th>Writing Score</th>
+        </tr>
+        {% for s in sat%}
+        <tr>
+          <td>{{s.year}}</td>
+          <td>{{s.reading}}</td>
+          <td>{{s.mathematics}}</td>
+          <td>{{s.writing}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+    <hr>
+    <h4>Survey Information</h4>
+    <button id="survey" onclick="hide('survey_info')">Hide</button>
+    <div id = "survey_info">
+      <table>
+        <tr>
+          <th>Standard</th>
+          <th>Score</th>
+        </tr>
+        {% for s in survey%}
+        <tr>
+          <td>{{s.standard}}</td>
+          <td>{{s.score}}</td>
+
+        {%endfor%}
+      </table>
+    </div>
+      <div>
+        <hr>
+    <a href="/login"> Log out</a> 
+
+  </div>
+      <script type="text/javascript">
+        function hide(ele) {
+          var x = document.getElementById(ele);
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+      </script>
+  {%endif%}
+
+
+
+  {% if (bname is defined) %}
+    <h3>Welcome back!  
+      <br>{{data[0].bname}} Administrator</h3>
+      <hr>
+      <h4>Schools</h4>
+      <button id="school" onclick="hide('school_name')">Hide</button> <a href= "/insert_borough?bname={{bname}}&item=school"> Update </a>
+      <div id = "school_name">
+          <table>
+            <tr>
+              <th>School Name</th>
+            </tr>
+            {% for n in names%}
+            <tr>
+              <td><a href="school_info?sid={{n.sid}}">{{n.sname.capitalize()}}</a></td>
+            </tr>
+            {%endfor%}
+          </table>
+        </div>
+
+      <hr>
+      <h4>Funds</h4>
+      <button id="fundclick" onclick="hide('fund')">Hide</button> <a href= "/insert_borough?bname={{bname}}&item=fund"> Update </a>
+      <div id = "fund">
+          <table>
+            <tr>
+              <th>Fund Id</th>
+              <th>School Name</th>
+              <th>Year</th>
+              <th>Amount</th>
+            </tr>
+            {% for f in fund%}
+            <tr>
+              <td>{{f[0]}}</td>
+              <td>{{f[1]}}</td>
+              <td>{{f[2]}}</td>
+              <td>{{f[3]}}</td>
+            </tr>
+            {%endfor%}
+          </table>
+        </div>
+
+
+    <script type="text/javascript">
+      function hide(ele) {
+        var x = document.getElementById(ele);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+    <hr>
+    <div>
+    <a href="/login"> Log out</a>
+    <br>
+   
+  </div>
+
+  {%endif%}
+
+</body>
+</div>
+{% include "footer.html" %}
+

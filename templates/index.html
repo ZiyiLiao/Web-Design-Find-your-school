@@ -1,29 +1,53 @@
+{% include "header.html" %}
+
 <html>
   <style>
-    body{ 
-      font-size: 15pt;
-      font-family: arial;
+    h1{ 
+      font-size: 20pt;
+      color:white ; 
+      font-size:100px;
+
+      font-family: Verdana;
+      text-align: center;
     }
+    body{
+      background-image: url('/static/img.jpg'); 
+      background-size:100%;
+    }
+    div.transbox {
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid white;
+      opacity: 0.6;
+      filter: alpha(opacity=60); 
+    }
+    div.transbox p{
+      margin: 5%;
+      font-weight: bold;
+      color: #000000;
+    }
+
   </style>
 
 
+
 <body>
-  <h1>Some famous Computer Scientists</h1>
-  <div>{{data}}</div>
+  <div class="container container-body">
+  <h1>Find A School</h1>
+  <hr>
 
-  <div>
-    {% for n in data %}
-    <div>{{n}}</div>
-    {% endfor %}
-  </div>
+  
+  <p style="font-family:courier"> Ziyi Liao(zl2739)  Na Zhuo(nz2297)</p>
 
-<p><a href="another">Go to the other page</a></p>
 
-<form method="POST" action="/add">
-<p>Name of new computer scientist: <input type="text" name="name"> <input type="submit" value="Add"></p>
-</form>
+  <hr>
+
+  <div class = "transbox", style="font-size: 20px">
+  <p>This application provides a search engine finding schools match your interests or finding a specific school's information.</p></div>
 
 </body>
 
 
 </html>
+
+{% include "footer.html" %}
