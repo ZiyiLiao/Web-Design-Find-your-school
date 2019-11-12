@@ -4,7 +4,7 @@
 
 
         PostgreSQL account: nz2297
-        URL: 35.237.146.64 
+        URL: http://35.237.146.64:8111
 
 ---
 ### Introduction
