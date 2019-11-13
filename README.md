@@ -1,11 +1,5 @@
 # Find Your School
 
-+ **Author**: Ziyi Liao (zl2739),  Na Zhuo (nz2297)
-
-
-        PostgreSQL account: nz2297
-        URL: http://35.237.146.64:8111
-
 ---
 ### Introduction
 
