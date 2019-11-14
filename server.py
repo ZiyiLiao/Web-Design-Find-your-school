@@ -361,17 +361,18 @@ def insert_school():
       c1 = g.conn.execute("INSERT INTO student(stuid, name) VALUES (%s, %s)", (stuid, name))
       c1.close()
     elif item == 'teacher':
-      course_id= request.form['cid']
-      course_name = request.form['cname']
-      tid = request.form['tid']
-      stuid= request.form['stuid']
-      c1 = g.conn.execute("INSERT INTO teach(course_id, course_name, tid, stuid) VALUES (%s, %s, %s, %s)", (course_id, course_name, tid, stuid))
+      gender= request.form['gender']
+      edu = request.form['edu']
+      tid = sid + request.form['tid']
+      tname = request.form['tname']
+      c1 = g.conn.execute("INSERT INTO teacher(gender, tname, tid, education) VALUES (%s, %s, %s, %s)", (gender, tname, tid, edu))
       c1.close()
     elif item == 'course':
       tid = sid + request.form['tid']
       name = request.form['cname']
       stuid = sid + request.form['stuid']
       course_id = request.form['cid']
+
       c1 = g.conn.execute("INSERT INTO teach(course_id, course_name, tid, stuid, sid) VALUES (%s, %s, %s, %s, %s)", (course_id, name, tid, stuid, sid))
       c1.close()
 
