@@ -5,8 +5,8 @@ We made the following modifications in our school recommandation database in ord
 
 | Object Name | Type | Location | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| Content Cell | Content Cell | | |
-
+| course_type | Array | Student | In student table we added an array to record all the enrolled courses of a student, with maximum 50 |
+| course_type | Array | Teacher | In teacher table we added an array to record all the courses taught by this teacher, with maximum 50 |
 #### Queries
 + Search school with name "Willamsberg"
 + Find the students who enrolled less than 2 courses
