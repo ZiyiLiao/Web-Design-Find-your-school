@@ -15,8 +15,11 @@ We made the following modifications in our school recommandation database in ord
 ```
 SELECT sname FROM school WHERE search @@ to_tsquery('Williamsburg');
 ```
-This query takes use of the documentation we created in school table. Users can modify the query according to their requirements in both table School and Student. Here we get 2 schools whose name contains "Williamsberg": "WILLIAMSBURG HIGH SCHOOL FOR ARCHITECTURE AND DESIGN"
-and "WILLIAMSBURG PREPARATORY SCHOOL".
+This query takes use of the documentation we created in school table. Users can modify the query according to their requirements in both table School and Student. Here we get 2 schools whose name contains "Williamsberg": 
+
+"WILLIAMSBURG HIGH SCHOOL FOR ARCHITECTURE AND DESIGN"
+
+"WILLIAMSBURG PREPARATORY SCHOOL".
 
 
 ##### 2. Find the students who enrolled less than 2 course
