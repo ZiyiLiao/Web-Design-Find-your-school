@@ -9,7 +9,7 @@ We made the following modifications in our school recommandation database in ord
 | courses | course_type (Array) | Teacher | In teacher table we added an array to record all the courses taught by this teacher, with maximum 50 |
 | info | crime_type (composite) | new_crime | In order to maintain data integrity, we make a backup table called new_crime and contribute our attribute "info" with user defined data type called crime_type, which records the crime type and occur date |
 | address | address_type (composite) | School | In oreder to gain a more clear view of the database, we create a composite data type called "address_type" for column Address in table school to store the address information more efficiently. The column contains street, borough and zipcode of each school respectively |
-| search | Documentation | Student and School | We created the documentation for names of schools and students in table School and Student respectively. |
+| search | Document | Student and School | We created the documentation for names of schools and students in table School and Student respectively. |
 #### Queries
 ##### 1.Search school with name "Williamsberg" 
 ```
