@@ -1,5 +1,6 @@
 # Project 2 ORDBMS
-### Ziyi Liao(zl2739)  Na Zhuo(nz2297)
+### Author:  Ziyi Liao(zl2739)  Na Zhuo(nz2297)
+### Database: nz2297
 #### Modifications
 We made the following modifications in our school recommandation database in order to improve the searching feature. <br/>
 
